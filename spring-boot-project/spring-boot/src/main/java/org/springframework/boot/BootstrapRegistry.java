@@ -43,6 +43,10 @@ import org.springframework.core.env.Environment;
  * @see BootstrapContext
  * @see ConfigurableBootstrapContext
  */
+
+/**
+ * 简单的对象注册表
+ */
 public interface BootstrapRegistry {
 
 	/**

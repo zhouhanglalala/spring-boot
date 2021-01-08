@@ -260,6 +260,10 @@ public class SpringApplication {
 	 * @see #SpringApplication(ResourceLoader, Class...)
 	 * @see #setSources(Set)
 	 */
+	/**
+	 * 创建一个SpringApplication实例。应用上下文会基于特定的主要来源文件加载很多bean对象
+	 * @param primarySources 主要的bean来源
+	 */
 	public SpringApplication(Class<?>... primarySources) {
 		this(null, primarySources);
 	}
@@ -273,6 +277,12 @@ public class SpringApplication {
 	 * @param primarySources the primary bean sources
 	 * @see #run(Class, String[])
 	 * @see #setSources(Set)
+	 */
+	/**
+	 * 创建一个SpringApplication实例。应用上下文会基于特定的主要来源文件加载很多bean对象
+	 * 在调用前 实例可以客制化
+	 * @param resourceLoader 资源加载器
+	 * @param primarySources 主要来源
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
@@ -1305,6 +1315,12 @@ public class SpringApplication {
 	 * @param args the application arguments (usually passed from a Java main method)
 	 * @return the running {@link ApplicationContext}
 	 */
+	/**
+	 * 可以用特定默认参数和用户提供的参数来运行SpringApplication 的全局共享的启动助手
+	 * @param primarySources 主要资源
+	 * @param args 命令行参数
+	 * @return
+	 */
 	public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
 		return new SpringApplication(primarySources).run(args);
 	}
@@ -1320,6 +1336,12 @@ public class SpringApplication {
 	 * @throws Exception if the application cannot be started
 	 * @see SpringApplication#run(Class[], String[])
 	 * @see SpringApplication#run(Class, String...)
+	 */
+	/**
+	 * 基于main方法用来启动应用程序的入口。需要接收命令行参数的时候，这方法很有用。
+	 * 大多数开发者想要运行他们自己定义的main方法 来取代预设的main方法
+	 * @param args 命令行参数
+	 * @throws Exception 启动失败就抛异常
 	 */
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(new Class<?>[0], args);

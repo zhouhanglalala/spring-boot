@@ -25,6 +25,9 @@ package org.springframework.boot;
  * @see SpringApplication#addBootstrapper(Bootstrapper)
  * @see BootstrapRegistry
  */
+/**
+ * 回调接口，在接口使用前会初始化一个引导注册表
+ */
 public interface Bootstrapper {
 
 	/**
